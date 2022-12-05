@@ -1,0 +1,145 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'DatalegreyaThin';
+    font-weight: 900;
+    font-style: normal;
+}
+
+
+html {
+    --main-color:#adadad;
+    --secondary-color:#5d5d5d;
+    --tertiary-color:#393939;
+    background-color: var(--main-color);
+}
+form, nav {
+    display: flex;
+    
+    padding: 1rem;
+    background-color: var(--tertiary-color);
+    gap: 0.3rem;
+}
+
+form {
+    width: min(30rem, 50%);
+    margin: auto;
+    border-radius: 1rem;
+    flex-direction: column;
+}
+
+input,select,#status,#new {
+    background-color: var(--main-color);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+    width: 30rem;
+}
+
+#table {
+    display: flex;
+    padding: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+    width: fit-content;
+    max-height: 20rem;
+}
+
+#table {
+    background-color: var(--secondary-color);
+    height: 80vh;
+    width: 80vw;
+    overflow: auto;
+    border-radius: 1rem;
+    margin: auto;
+}
+
+#table >div{
+    background-color:#ececec;
+
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+input, select {
+    height: 2rem;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 1rem;
+}
+
+nav {
+    justify-content: space-between;
+}
+
+input[type='checkbox'] {
+    width: 2rem;
+    height: 2rem;
+    position: fixed;
+    top:10px;
+    right:10px;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.light{
+    --main-color:#ebebeb;
+    --secondary-color:#cecece;
+    --tertiary-color:#a4a4a4;
+    color: black;
+}
+
+
+
+#light {
+    width: 2rem;
+    height: 2rem;
+    background: url("brightness-6.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+
+.new {
+    padding: 1rem;
+    margin: 1rem;
+    background-color: var(--secondary-color);
+    border-radius: 1rem;
+    text-align: center;
+    width: min(300px,30%);
+    margin: auto;
+    margin-top: 1rem;
+}
+
+#table {
+    margin-top: 1rem;
+}
+
+main {
+    display: none;
+    position: fixed;
+    top:50;
+
+    width: 100vw;
+}
+
+.display {
+    display:block;
+}
+
+.top {
+    display: flex;
+}
+
+.top > button {
+    background-color: var(--main-color);
+    border-radius: 1rem;
+    padding: 0.3rem;
+}
