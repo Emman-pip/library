@@ -9,8 +9,8 @@
 
 html {
     --main-color:#adadad;
-    --secondary-color:#5d5d5d;
-    --tertiary-color:#393939;
+    --secondary-color:#5d5d5de2;
+    --tertiary-color:#393939ea;
     background-color: var(--main-color);
 }
 form, nav {
@@ -38,6 +38,8 @@ main {
     padding: 1rem;
     gap: 1rem;
     width: 30rem;
+    justify-content: center;
+    align-items: center;
 }
 
 #table {
@@ -60,6 +62,7 @@ main {
 
 #table >div{
     background-color:#ececec;
+    
 
 }
 
@@ -90,9 +93,9 @@ input[type='checkbox'] {
 }
 
 .light{
-    --main-color:#ebebeb;
-    --secondary-color:#cecece;
-    --tertiary-color:#a4a4a4;
+    --main-color:#ebebebdf;
+    --secondary-color:#cececee1;
+    --tertiary-color:#ccccccde;
     color: black;
 }
 
@@ -142,4 +145,15 @@ main {
     background-color: var(--main-color);
     border-radius: 1rem;
     padding: 0.3rem;
+}
+
+:root{
+    background:url("https://assets.weforum.org/article/image/responsive_big_webp_hySrQhk9QgN45B-0z8PR0bd8ZRyDZ9LnvzPSGaIb91Q.webp");
+    background-repeat: no-repeat;
+    background-size:fill;
+    background-position: center center;
+}
+
+.new {
+    font-size: 2rem;
 }
