@@ -1,98 +1,73 @@
-let myLibrary = [];
-newLibrary = [...myLibrary];
+class Library {
+  constructor (title,pages,author,status) {
+    this.title=title;
+    this.pages=pages;
+    this.author=author;
+    this.status=status;
+  }
 
-const table = document.getElementById('table')
-const button = document.querySelector('button');
-const title = document.querySelector('#title');
-const pages = document.querySelector('#pages');
-const author = document.querySelector('#author');
-const status = document.querySelector('#status');
+  addButtons(){
+      document.querySelector('.new').addEventListener('click',()=>{
+        const main = document.querySelector('main');
+        main.setAttribute('style', 'display:block')
+      })
+      
+      document.querySelector('#new').addEventListener('click',()=>{
+        const main = document.querySelector('main');
+        main.setAttribute('style', 'display:none')
+      })
+  }
 
-const add = document.querySelector('.new');
-const main = document.querySelector('main');
+  display(book, book2){
+    document.querySelector('#table').innerHTML = '';
+    for (let i=0; i<book.length; i++){
+      const element = document.createElement('div');
+      const td1 = document.createElement('div');
+      const td2 = document.createElement('div');
+      const td3 = document.createElement('div');
+      const td4 = document.createElement('button');
+      
+      td1.textContent = 'title: '+ book[i].title;
+      td2.textContent = 'pages: '+ book[i].pages;
+      td3.textContent = 'author: '+ book[i].author;
+      td4.textContent = 'status: ' + book[i].status;
 
-function Book(title,pages,author,status) {
-  this.title=title;
-  this.pages=pages;
-  this.author=author;
-  this.status=status;
+      document.querySelector('#table').appendChild(element)
+      element.appendChild(td1);
+      element.appendChild(td2);
+      element.appendChild(td3);
+      element.appendChild(td4);
+
+      const remove = document.createElement('button');
+      remove.textContent = 'remove';
+      element.appendChild(remove);
+      table.appendChild(element);
+
+      remove.addEventListener('click', ()=>{
+        table.removeChild(element);
+        let num = book.indexOf(book2[i])
+        book.splice(num,1)
+    })
+    }
+  }
+
+  event(){
+    const books = [];
+    const books2 = [];
+    this.addButtons()
+    document.querySelector('button').addEventListener('click', (e)=>{
+      e.preventDefault();
+      const book1 = new Library(document.querySelector('#title').value,document.querySelector('#pages').value,document.querySelector('#author').value,document.querySelector('#status').value);
+      books.push(book1);
+      books2.push(book1);
+      this.display(books, books2)
+    })
+  }
+
+
+
 }
 
-function clear(table){
-  table.innerHTML='';
-}
+Library.prototype.event()
 
-function addBookToLibrary(book) {
-  
-  for(let i=0;i<myLibrary.length;i++){
-    const tr = document.createElement('div');
-    tr.setAttribute('style', 'box-shadow:3px 3px 10px; padding:1rem;border-radius:1rem;')
-    const td1 = document.createElement('div');
-    const td2 = document.createElement('div');
-    const td3 = document.createElement('div');
-    const td4 = document.createElement('button');
-    
-    td1.textContent = 'title: '+ book[i].title;
-    td2.textContent = 'pages: '+ book[i].pages;
-    td3.textContent = 'author: '+ book[i].author;
-    td4.textContent = 'status: ' + book[i].status;
 
-    td4.addEventListener('click', ()=>{
-      if (td4.textContent='status: read'){
-        td4.textContent=='status: not read';
-        book[i].status='read';
-      } 
-    })
-
-    td4.addEventListener('dblclick', ()=>{
-      if (td4.textContent='status: not read'){
-        td4.textContent=='status: read';
-        book[i].status='not read'
-      } 
-    })
-
-    tr.appendChild(td1);
-    tr.appendChild(td2);
-    tr.appendChild(td3);
-    tr.appendChild(td4);
-    
-    const remove = document.createElement('button');
-    remove.textContent = 'remove';
-    tr.appendChild(remove);
-    table.appendChild(tr);
-
- 
-    
-    remove.addEventListener('click', ()=>{
-      table.removeChild(tr);
-      let num = myLibrary.indexOf(newLibrary[i])
-      myLibrary.splice(num,1)
-    })
-}}
-
-button.addEventListener('click', (ev)=>{
-  ev.preventDefault();
-  const book = new Book(title.value,pages.value,author.value,status.value);
-  myLibrary.push(book);
-  addBookToLibrary(myLibrary); 
-  title.value = '';
-  pages.value = '';
-  author.value = '';
-  main.classList.toggle("display")
-})
-
-button.addEventListener('mousedown', (ev)=>{
-  ev.preventDefault();
-  clear(table);
-})
-
-const light = document.getElementById('light');
-const root = document.querySelector('html');
-
-light.addEventListener('click', ()=>{
-  root.classList.toggle("light");
-})
-
-add.addEventListener('click', ()=>{
-  main.classList.toggle("display")
-})

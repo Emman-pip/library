@@ -126,10 +126,9 @@ input[type='checkbox'] {
 }
 
 main {
-    display: none;
     position: fixed;
     top:50;
-
+    display:none;
     width: 100vw;
 }
 
@@ -156,4 +155,5 @@ main {
 
 .new {
     font-size: 2rem;
+    color: white;
 }
