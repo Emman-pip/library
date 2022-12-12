@@ -38,6 +38,14 @@ class Library {
       element.appendChild(td3);
       element.appendChild(td4);
 
+      td4.addEventListener('click',()=>{
+        td4.textContent='status: read'
+      })
+
+      td4.addEventListener('dblclick',()=>{
+        td4.textContent='status: not read'
+      })
+
       const remove = document.createElement('button');
       remove.textContent = 'remove';
       element.appendChild(remove);
@@ -63,9 +71,6 @@ class Library {
       this.display(books, books2)
     })
   }
-
-
-
 }
 
 Library.prototype.event()
