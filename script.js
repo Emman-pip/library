@@ -22,6 +22,7 @@ class Library {
     document.querySelector('#table').innerHTML = '';
     for (let i=0; i<book.length; i++){
       const element = document.createElement('div');
+      element.setAttribute('style', 'padding:1rem;border-radius:1rem')
       const td1 = document.createElement('div');
       const td2 = document.createElement('div');
       const td3 = document.createElement('div');
