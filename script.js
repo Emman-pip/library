@@ -1,3 +1,5 @@
+console.log("henlo")
+
 let myLibrary = [];
 newLibrary = [...myLibrary];
 
